@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_daddy_app/app_bar_9g.dart';
 import 'package:go_daddy_app/home_page/channel_container.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,9 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Map<String, String> channels;
 
   @override
-  void dispose() {
-    super.dispose();
-  }
+  void dispose() => super.dispose();
 
   @override
   void initState() {
@@ -26,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "Roblox": "Channel for Roblox Shenanigans",
       "Vacation": "Vacation Things",
       "Projects": "Channel for Projects",
-      "Drawing": "Para sa mga planong di matutuloy"
+      "Drawing": "Para sa mga planong di matutuloy",
     };
   }
 
@@ -34,62 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        toolbarHeight: 85,
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        shadowColor: Colors.black,
-        flexibleSpace: SafeArea(
-          child: Stack(
-            children: [
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/logo.png',
-                      width: 40,
-                      height: 40,
-                    ),
-                    SizedBox(height: 5),
-                    Text(widget.title),
-                  ],
-                ),
-              ),
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.only(right: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(
-                        Icons.person,
-                        size: 30,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: Container(
-            color: Colors.grey,
-            height: 1.0,
-          ),
-        ),
-      ),
+      appBar: AppBar9G(title: widget.title),
       floatingActionButton: _addFloatingButton(
         Colors.white,
         () {}
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: Padding(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: channels.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(left: 5, right: 5, bottom: 15),
                     child: ChannelContainer(
                         title: channels.entries.elementAt(index).key,
                         description: channels.entries.elementAt(index).value
